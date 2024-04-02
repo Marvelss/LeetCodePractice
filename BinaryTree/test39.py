@@ -6,6 +6,7 @@
 跟着代码抄了一遍
 其中思路在二叉树的所有路径的回溯基础上添加了一步数值操作
 数值计算逻辑代码实现不太明白
+注意第一次递归时需要减去根节点值
 """
 from typing import Optional
 
@@ -41,4 +42,4 @@ class Solution:
         if not root:
             return False
 
-        return self.traversal(root, targetSum)
+        return self.traversal(root, targetSum-root.val)
