@@ -21,3 +21,25 @@ class Solution:
 
 
 print([0] * 26)
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.metrics import r2_score
+
+# 示例数据
+actual = np.random.uniform(0, 100, 50)
+predicted = actual + np.random.normal(0, 10, 50)
+
+# 计算R^2
+r2 = r2_score(actual, predicted)
+
+# 创建图形
+plt.figure(figsize=(6, 4))
+plt.scatter(actual, predicted, c='black')
+plt.plot([0, 100], [0, 100], 'r--')
+plt.text(5, 90, f'$R^2 = {r2:.2f}$', fontsize=12)
+plt.xlabel('实际病株率峰值(%)')
+plt.ylabel('预测病株率峰值(%)')
+plt.xlim(0, 100)
+plt.ylim(0, 100)
+plt.tight_layout()
+plt.show()
