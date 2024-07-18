@@ -14,7 +14,7 @@ from typing import List
 
 class Solution:
     def maxSubArray(self, nums: List[int]) -> int:
-        result = 0
+        result = float('-inf')
         count = 0
         for num in nums:
             count = num + count
@@ -22,8 +22,4 @@ class Solution:
                 result = count
             if count < 0:
                 count = 0
-                result = count
         return result
-
-
-Solution().maxSubArray([-2, 1, -3, 4, -1, 2, 1, -5, 4])
